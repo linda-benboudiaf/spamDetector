@@ -10,6 +10,8 @@ X = data[:,0:56] #Data
 y = data [:,57] #Target
 
 #We take 20% for testing and 80% as a Training Data.
+#We can make Trainning Dat more important in order to get more reliable Accuracy.
+#X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.020)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20)
 
 scaler = StandardScaler()
@@ -24,8 +26,8 @@ X_test = scaler.transform(X_test)
 #print(confusion_matrix(y_test, y_pred))  #Print Confusion Matrix
 #print(classification_report(y_test, y_pred))
 
-accuracy = [] #We agregate the Accuracy averages 18.
-f1_scores = []
+accuracy = [] #We agregate the Accuracy averages for 18 neighbors.
+f1_scores = [] #Metrics...
 index = range(2, 20)
 for i in index:
     classifier = KNeighborsClassifier(n_neighbors = i) #18 classifiers
