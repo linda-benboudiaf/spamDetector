@@ -27,7 +27,7 @@ param = {
     'eta': 0.3,  # the training step for each iteration
     'silent': 1,  # logging mode - quiet
     'objective': 'multi:softprob',  # error evaluation for multiclass training
-    'num_class': 2 }# the number of classes that exist in this datset
+    'num_class': 2 }# the number of classes that exist in this dataset
 num_round = 20  # the number of training iterations
 
 #-------------  numpy array  ------------------
