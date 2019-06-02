@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import classification_report, confusion_matrix, mean_absolute_error
 from sklearn.linear_model import LogisticRegression
 import matplotlib.pyplot as plt
 
@@ -30,21 +30,26 @@ lr_X = LogisticRegression(random_state=0, solver='lbfgs', multi_class='ovr', max
 import math
 math.sqrt(len(y_test)) # it gives 30.34 so we take 29 as first best value to 'K'
 
-# Predict the test set results
-y_pred = lr_X.predict(X_test)
 
 # we calculate the average.
-avg = np.mean(y_pred != y_test)
-print(classification_report(y_test, y_pred))
-errorRatio = [avg, avg]
+errorRatio = []
+res = []
+index = range(3,5)
+for i in index:
+    # Predict the test set results
+    y_pred = lr_X.predict(X_test)
+    res.append(mean_absolute_error(y_pred, y_test))
+    errorRatio.append(np.mean(y_pred != y_test))
 
-range = [3,29] ### valeur de K
+#print(classification_report(y_pred, y_test))
+print(classification_report(y_pred, y_test))
 
+### valeur de K
 ''''https://matplotlib.org/3.1.0/api/_as_gen/matplotlib.pyplot.figure.html'''
 plt.figure(figsize=(14, 6))
-plt.plot(range, errorRatio, color='red', linestyle='dashed', marker='o',
+plt.plot(index, errorRatio, color='red', linestyle='dashed', marker='o',
          markerfacecolor='blue', markersize=10)
 plt.title('Error ratio according to K values')
-plt.xlabel('')
-plt.ylabel('Erreur moyenne')
+plt.xlabel('K values')
+plt.ylabel('Error average')
 plt.show()
