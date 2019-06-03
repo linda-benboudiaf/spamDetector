@@ -2,16 +2,24 @@
 
 import xgboost as xgb
 import numpy as np
+import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import dump_svmlight_file
 from sklearn.externals import joblib
 from sklearn.metrics import precision_score
 
-data = np.loadtxt('/home/lbenboudiaf/Bureau/spamDetector/DataSets/spambase.csv', delimiter=",")
-X = data[:,0:56] #Data
-y = data [:,57] #Target or classes.
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20)
+datasets = pd.read_csv('/home/lbenboudiaf/Bureau/spamDetector/DataSets/spambase.csv')
+#Shuffle the data
+datasets = datasets.sample(frac=1)
+datasets = datasets.drop(labels=['word_freq_george','word_freq_650'], axis=1)
+
+# Split Data
+X = datasets.iloc[:,0:55].values #Data, don't worry it doesn't include the last colunm.
+y = datasets.iloc[:,55].values
+
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state=True)
 
 dtrain = xgb.DMatrix(X_train, label= y_train)
 dtest = xgb.DMatrix(X_test, label= y_test)
@@ -21,6 +29,7 @@ dump_svmlight_file(X_test, y_test, 'dtest.svm', zero_based=True)
 dtrain_svm = xgb.DMatrix('dtrain.svm')
 dtest_svm = xgb.DMatrix('dtest.svm')
 
+''' http://www.datacorner.fr/xgboost'''
 #--------------------  XGBoost Works with Parameters  ------------------------
 param = {
     'max_depth': 6,  # the maximum depth of each tree
