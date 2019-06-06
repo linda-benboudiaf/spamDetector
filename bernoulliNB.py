@@ -19,7 +19,7 @@ data = np.loadtxt(data,delimiter=",")
 data = np.delete(data,26,1) # deleting both '650' and 'george' columns
 data = np.delete(data,27,1)
 
-x = data[:,:48] 
+x = data[:,:55] 
 y = data[:,-1]
 
 x_train,x_test,y_train,y_test= train_test_split(x,y,test_size = 0.21, random_state = 17)
