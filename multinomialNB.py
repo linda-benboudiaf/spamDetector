@@ -24,7 +24,7 @@ x_train,x_test,y_train,y_test= train_test_split(x,y,test_size = 0.21, random_sta
 MultiNB = MultinomialNB()
 MultiNB.fit(x_train,y_train)
 print(MultiNB)
-#y_expect = y_test
+y_expect = y_test
 y_predict = MultiNB.predict(x_test)
 print(accuracy_score(y_test,y_predict))
 skplt.metrics.plot_confusion_matrix(y_test, y_predict, normalize=True)
