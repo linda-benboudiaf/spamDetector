@@ -28,23 +28,22 @@ X_test = sc_X.transform(X_test.astype(float))
 # in order to determine the best value to 'K'
 # in this case we have 2 classes so it is better ti have an odd number like 3, 7, 11 ...
 import math
-math.sqrt(len(y_test)) # it gives 30.34 so we take 29 as first best value to 'K'
-
+print(math.sqrt(len(X_train))) # it gives 30.34 so we take 29 as first best value to 'K'
 #Define the Model: K-NN
 # p=2 because we want to identifie weather the email is a spam or not.
 # We take the euclidean distance between a given data point and the actual data point.
 # EuclideanDistance = srqt(pow(x-xi,2) + pw(y-yi,2));
-classifier = KNeighborsClassifier(n_neighbors= 3, p=2,metric= 'euclidean', weights='distance')
-classifier.fit(X_train, y_train)
+#classifier = KNeighborsClassifier(n_neighbors= 3, p=2,metric= 'euclidean', weights='distance')
+#classifier.fit(X_train, y_train)
 
 # Predict the test set results
-y_pred = classifier.predict(X_test)
+#y_pred = classifier.predict(X_test)
 
 accuracy = [] #We agregate the Accuracy averages for 18 neighbors.
 f1_scores = [] #Metrics...
-index = range(3,29)
+index = range(3,60)
 for i in index:
-    classifier = KNeighborsClassifier(n_neighbors = i) #20 classifiers
+    classifier = KNeighborsClassifier(n_neighbors = i,metric= 'euclidean', weights='uniform', leaf_size= 30) #27 classifiers
     classifier.fit(X_train, y_train)
     y_pred = classifier.predict(X_test) # Predict the class labels for the provided data
     conf_matrix = confusion_matrix(y_test, y_pred) # What we predit <VS> what actually is on test data.
