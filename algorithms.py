@@ -10,9 +10,6 @@ from sklearn.gaussian_process.kernels import RBF
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 
 classifiers = [
-	("Nearest Neighbors", KNeighborsClassifier(3)),
-	("AdaBoost", AdaBoostClassifier()),
-	("Naive Bayes", GaussianNB()),
 	("Random Forest Classifier", RandomForestClassifier()),
 ]
 
@@ -20,19 +17,19 @@ def run():
 	return run_algos(classifiers)
 
 def run_algos(algo_list):
+	print(algo_list)
 	confusion_matrixes = {}
 	for (name, algo) in algo_list:
 		algo.fit(main.X_train, main.y_train)
 		output = algo.predict(main.X_test)
-
+		# accuracy = the sum of all True positives and True Negative to the total number of test instances.
 		accuracy = round(accuracy_score(main.y_test, output), 4)*100
+		# precision = the ratio of true positive to true and false positives.
 		precision = round(precision_score(main.y_test, output), 4)*100
+		# recall  = s the ratio of true positives to the number of true positive and false negatives
 		recall = round(recall_score(main.y_test, output), 4)*100
-		f1_score_ = round(f1_score(main.y_test, output), 4)*100
-		auc = round(roc_auc_score(main.y_test, output), 4)*100
 
-		print(name, ':  Accuracy - ', accuracy, ', Precision - ', precision, ', Recall - ', recall,
-		', F1_score - ', f1_score_, ' AUC - ', auc)
+		print(name, ':  Accuracy - ', accuracy, ', Precision - ', precision, ', Recall - ', recall)
 
 		confusion_matrixes[name] = (confusion_matrix(main.y_test, output))
 	return confusion_matrixes
