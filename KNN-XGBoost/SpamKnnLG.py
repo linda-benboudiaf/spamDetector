@@ -7,7 +7,7 @@ from sklearn.metrics import classification_report, confusion_matrix, mean_absolu
 from sklearn.linear_model import LogisticRegression
 import matplotlib.pyplot as plt
 
-datasets = pd.read_csv('/home/lbenboudiaf/Bureau/spamDetector/DataSets/spambase.csv')
+datasets = pd.read_csv('/home/lbenboudiaf/Bureau/spamDetector/KNN-XGBoost/DataSets/spambase.csv')
 #Shuffle the data
 datasets = datasets.sample(frac=1) # we shuffle
 

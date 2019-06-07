@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import  confusion_matrix, f1_score, accuracy_score
 
-datasets = pd.read_csv('/home/lbenboudiaf/Bureau/spamDetector/DataSets/spambase.csv')
+datasets = pd.read_csv('/home/lbenboudiaf/Bureau/spamDetector/KNN-XGBoost/DataSets/spambase.csv')
 #Shuffle the data
 datasets = datasets.sample(frac=1)
 
@@ -28,7 +28,7 @@ X_test = sc_X.transform(X_test.astype(float))
 # in order to determine the best value to 'K'
 # in this case we have 2 classes so it is better ti have an odd number like 3, 7, 11 ...
 import math
-print(math.sqrt(len(X_train))) # it gives 30.34 so we take 29 as first best value to 'K'
+print('Value for K Math.sqrt(len of X_train) -------> ',math.sqrt(len(X_train))) # it gives 30.34 so we take 29 as first best value to 'K'
 #Define the Model: K-NN
 # p=2 because we want to identifie weather the email is a spam or not.
 # We take the euclidean distance between a given data point and the actual data point.
@@ -38,6 +38,8 @@ print(math.sqrt(len(X_train))) # it gives 30.34 so we take 29 as first best valu
 
 # Predict the test set results
 #y_pred = classifier.predict(X_test)
+
+print("Please wait for graph representation ....")
 
 accuracy = [] #We agregate the Accuracy averages for 18 neighbors.
 f1_scores = [] #Metrics...
@@ -60,7 +62,6 @@ mc = confusion_matrix(y_test, y_pred)
 print(mc)
 
 # Graph representation
-print("Please wait for graph representation ....")
 
 ''''https://matplotlib.org/3.1.0/api/_as_gen/matplotlib.pyplot.figure.html'''
 plt.figure(figsize=(10, 6), num='Knn Algorithm on SpamBase Dataset')

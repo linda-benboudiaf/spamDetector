@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier, DistanceMetric
 from sklearn.metrics import classification_report, confusion_matrix, f1_score
 
-data = np.loadtxt('/home/lbenboudiaf/Bureau/DataScience/Projet/Data/spambase.csv', delimiter=",")
+data = np.loadtxt('/home/lbenboudiaf/Bureau/spamDetector/KNN-XGBoost/DataSets/spambase.csv', delimiter=",")
 X = data[:,0:57] #Data
 y = data [:,57] #Target
 

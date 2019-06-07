@@ -31,9 +31,9 @@ pip install xgboost`
 `pip install scikitplot`
 ```
 ### Running & Tests 
-- you may need to change rights to the luncher program
+- for the **KNN-XGBoost** folder **only** (make sure you satisfy all Prerequisites) you might need to change rights for 
 ```sh 
-run.sh 
+run on terminal ./Run.sh 
 ```
 ## Build with 
 - [scikit-learn](https://scikit-learn.org/stable/) -> Machine Learning library

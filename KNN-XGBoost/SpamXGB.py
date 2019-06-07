@@ -11,7 +11,7 @@ from sklearn.metrics import precision_score
 from xgboost import XGBClassifier
 from xgboost import plot_importance
 
-datasets = pd.read_csv('/home/lbenboudiaf/Bureau/spamDetector/DataSets/spambase.csv')
+datasets = pd.read_csv('/home/lbenboudiaf/Bureau/spamDetector/KNN-XGBoost/DataSets/spambase.csv')
 #Shuffle the data
 datasets = datasets.sample(frac=1)
 datasets = datasets.drop(labels=['word_freq_george','word_freq_650'], axis=1)
@@ -19,14 +19,6 @@ datasets = datasets.drop(labels=['word_freq_george','word_freq_650'], axis=1)
 # Split Data
 X = datasets.iloc[:,0:55].values #Data, don't worry it doesn't include the last colunm.
 y = datasets.iloc[:,55].values
-
-# Metrics
-model = XGBClassifier()
-model.fit(X,y)
-xgb.plot_importance(model)
-#xgb.to_graphviz(model, num_trees=2)
-plt.show()
-
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state=True)
 
@@ -79,5 +71,11 @@ bst_svm.dump_model('dump_svm.raw.txt')
 joblib.dump(bst, 'bst_model.pkl', compress=True)
 joblib.dump(bst_svm, 'bst_svm_model.pkl', compress=True)
 
+# Metrics
+model = XGBClassifier()
+model.fit(X,y)
+xgb.plot_importance(model)
+#xgb.to_graphviz(model, num_trees=2)
+plt.show()
 
 
