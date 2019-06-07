@@ -1,4 +1,5 @@
 # ```spamDetector```
+# ![spamDetector](pic/SpamLogo.png)
 `` DataScience Project ``
 ## Description 
 This project study can be used to predicte filter spams emails for your inbox. 
@@ -8,7 +9,7 @@ Pull the project
 git clone https://github.com/lindaAcc/spamDetector.git
 ```
 ### Getting Stared 
-These instruction will lead you to set up the project on your local machine in for testing puposes.
+These instruction will lead you to set up the project on your local machine in for testing purposes.
 ## Prerequisites
 - `Python 3`
 - `Pip`
