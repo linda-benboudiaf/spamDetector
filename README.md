@@ -31,7 +31,7 @@ pip install xgboost`
 `pip install scikitplot`
 ```
 ### Running & Tests 
-- for the **KNN-XGBoost** folder **only** (make sure you satisfy all Prerequisites) you might need to change rights for 
+For **KNN-XGBoost** folder **only** (make sure you satisfy all Prerequisites) you might need to change rights to Run.sh
 ```sh 
 run on terminal ./Run.sh 
 ```
