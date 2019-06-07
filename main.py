@@ -2,8 +2,8 @@ from pandas import read_csv
 from sklearn.model_selection import train_test_split
 import os
 import re
-import algos
-import graph
+import algorithms
+import graphs
 
 def init():
 	global data, target, X, names
@@ -34,6 +34,6 @@ def init():
 	X_train, X_test, y_train, y_test = train_test_split(X, target, test_size=0.2, random_state=42)
 
 init()
-matrixes = algos.run()
-graph.matrixes(matrixes)
-graph.wordcloud()
+matrixes = algorithms.run()
+graphs.matrixes(matrixes)
+graphs.wordcloud()
