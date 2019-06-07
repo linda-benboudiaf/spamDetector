@@ -32,7 +32,7 @@ supported by evidences and do not hesitate to search the internet for more metri
 <img src="/screenshots/AdaBoost.png" alt="drawing" width="400"/>
 
 4. Random Forest Classifier
-<img src="/screenshots/random.PNG" alt="drawing" width="400"/>
+<img src="/screenshots/random.PNG" alt="drawing"/>
 
 ## Run
 ```
