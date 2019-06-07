@@ -31,6 +31,9 @@ supported by evidences and do not hesitate to search the internet for more metri
 3. AdaBoost
 <img src="/screenshots/AdaBoost.png" alt="drawing" width="400"/>
 
+4. Random Forest Classifier
+<img src="/screenshots/random.png" alt="drawing" width="400"/>
+
 ## Run
 ```
 python algorithms.py
