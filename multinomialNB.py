@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 import scikitplot as skplt
+from sklearn.linear_model import LogisticRegression
 
 from sklearn.ensemble import RandomForestClassifier
 
@@ -17,7 +18,7 @@ data = np.loadtxt(data,delimiter=",")
 data = np.delete(data,26,1) # deleting both '650' and 'george' columns
 data = np.delete(data,27,1)
 
-x = data[:,:48] 
+x = data[:,:48] # better results when ignoring char_freq_CHAR and capital letters 
 y = data[:,-1]
 
 x_train,x_test,y_train,y_test= train_test_split(x,y,test_size = 0.21, random_state = 17)
@@ -30,3 +31,8 @@ print(accuracy_score(y_test,y_predict))
 skplt.metrics.plot_confusion_matrix(y_test, y_predict, normalize=True)
 plt.show()
 
+lr = LogisticRegression(solver = 'newton-cg' , multi_class = 'multinomial')
+lr = lr.fit(x_train, y_train)
+y_probas = lr.predict_proba(x_test)
+skplt.metrics.plot_lift_curve(y_test, y_probas)
+plt.show()
