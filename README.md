@@ -41,4 +41,4 @@ run.sh
 - Lam Nguyen Mohamed -> [NguyenLamM](https://github.com/NguyenLamM)
 - Linda Ben boudiaf -> [lindaAcc](https://github.com/lindaAcc)
 - Pierre Kruz -> [pierrekurz](https://github.com/pierrekurz)
-- Tra NGUYEN -> [Jasmine]https://github.com/huocha)
+- Tra NGUYEN -> [Jasmine](https://github.com/huocha)
