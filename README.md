@@ -17,7 +17,7 @@ These instruction will lead you to set up the project on your local machine in f
 ```bash 
 sudo apt install python3 python3-pip python3-tk
 ```
-### Libreries
+### Libraries
 ###### `scikit-learn`  `numpy` `panda`  `matplotlib`
 
 ######  `SpamXGB.py` program needs 
@@ -33,7 +33,7 @@ pip install xgboost`
 ### Running & Tests 
 For **KNN-XGBoost** folder **only** (make sure you satisfy all Prerequisites) you might need to change rights to Run.sh
 ```sh 
-run on terminal ./Run.sh 
+./Run.sh 
 ```
 ## Build with 
 - [scikit-learn](https://scikit-learn.org/stable/) -> Machine Learning library
